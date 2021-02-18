@@ -1341,13 +1341,10 @@ void nucl_comp(bool &disp, unsigned short int &n, unsigned int &s, vector<double
 	vector<double> d(n, 0);
 	double epsi = 0;
 	double epsi_old = -DBL_MAX;
-	while (rank < n) {
+	while (rank < n)
 		pivot(epsi, s, excess, prec, n, A, Arref, J, unsettled, rank, d, x, disp, Asettled, piv, sr, iter, unsettled_p, singleton_bounds, epsi_old, nlsu, min_satisfaction);
-		//cin.get();
-	}
 	t = cpuTime() - t1;
 	if (disp) {
-		//cout << "BNF finished!" << endl;
 		cout << "The nucleolus solution:" << endl;
 		for (unsigned short int i = 0; i < n; i++)
 			cout << x[i] << endl;
@@ -1460,8 +1457,6 @@ void subroutine(vector<bool>&U, vector<bool>&U2, vector<vector<bool>> &Atight, v
 	vector<bool> t2(tight2_size, false);
 	glp_prob *lp;
 	lp = glp_create_prob();
-	//glp_set_prob_name(lp, "sr");
-	//glp_set_obj_name(lp, "obj");
 	glp_set_obj_dir(lp, GLP_MAX);
 	glp_add_rows(lp, n + 1);
 	glp_add_cols(lp, tight_size + tight2_size + rank);
@@ -1536,50 +1531,8 @@ void subroutine(vector<bool>&U, vector<bool>&U2, vector<vector<bool>> &Atight, v
 	int* ja_arr = ja.data();
 	double* ar_arr = ar.data();
 	glp_load_matrix(lp, count, ia_arr, ja_arr, ar_arr);
-	//int row_ind[n + 2];
-	//double row_coeff[n + 2];
 	if (disp)
 		cout << endl << "  --==  solving subroutine LP  ==--  " << endl << endl;
-	//    if (disp){
-	//        //cout << "(row_coeff init) ";
-	//        //for (unsigned int j = 1; j < tight_size + tight2_size + rank + 1; j++)
-	//        //    cout << row_coeff[j] << " ";
-	//        //cout << endl;
-	//        cout << "variables: " << endl;
-	//        for (unsigned int j = 1; j < tight_size + tight2_size + rank + 1; j++)
-	//            cout << "COL type " << glp_get_col_type(lp, j) << "; lb " << glp_get_col_lb(lp, j) << "; ub " << glp_get_col_ub(lp, j) << endl;
-	//        cout << glp_get_obj_dir(lp) << endl;
-	//        cout << "obj coeff: ";
-	//        for (unsigned int j = 1; j < tight_size + tight2_size + rank + 1; j++)
-	//            cout << glp_get_obj_coef(lp, j) << " ";
-	//        cout << endl;
-	//        for (unsigned short int i = 1; i < n + 2; i++){
-	//            cout << "ROW type " << glp_get_row_type(lp, i) << "; lb " << glp_get_row_lb(lp, i) << "; ub " << glp_get_row_ub(lp, i) << ": ";
-	////            glp_get_mat_row(lp, i, row_ind, row_coeff);
-	////        for (unsigned int j = 1; j < tight_size + tight2_size + rank + 1; j++)
-	////                cout << row_coeff[j] << " ";
-	//            cout << endl;
-	//        }
-	//        for (unsigned short int i = 1; i < n + 1; i++){
-	//            for (unsigned int j = 1; j < tight_size + 1; j++)
-	//                cout << ar[(j-1)*n+i] << " ";
-	//            for (unsigned int j = 1; j < tight2_size + 1; j++)
-	//                cout << ar[(j-1)*n+i+n*tight_size] << " ";
-	//            for (unsigned int j = 1; j < rank + 1; j++)
-	//                cout << ar[(j-1)*n+i+n*tight_size+n*tight2_size] << " ";
-	//            cout << endl;
-	//        }
-	//        for (unsigned int j = 1; j < tight_size + 1; j++)
-	//            cout << ar[j + n*(tight_size + tight2_size + rank)] << " ";
-	//        for (unsigned int j = 1; j < tight2_size + 1; j++)
-	//            cout << ar[j + tight_size + n*(tight_size + tight2_size + rank)] << " ";
-	//        for (unsigned int j = 1; j < rank + 1; j++)
-	//            cout << ar[j + tight_size + tight2_size + n*(tight_size + tight2_size + rank)] << " ";
-	//        cout << endl;
-	////        for (unsigned int j = 0; j < (n+1)*(tight_size+tight2_size+rank) + 1; j++)
-	////            cout << "ia[" << j << "]=" << ia[j] << " ; ja[" << j << "]=" << ja[j] << " ; ar[" << j << "]=" << ar[j] << endl;
-	//        //cin.get();
-	//    }
 	glp_smcp parm;
 	glp_init_smcp(&parm);
 	if (!disp)
@@ -1597,14 +1550,6 @@ void subroutine(vector<bool>&U, vector<bool>&U2, vector<vector<bool>> &Atight, v
 	unsigned int i;
 	unsigned short int rank_old = rank;
 	while (feas) {
-		//        if (disp){
-		//            for (unsigned int j = 0; j < tight_size; j++)
-		//                cout << "u" << j << "_j=" << glp_get_col_prim(lp, j + 1) << endl;
-		//            for (unsigned int j = 0; j < tight2_size; j++)
-		//                cout << "w" << j + tight_size << "_j=" << glp_get_col_prim(lp, j + tight_size + 1) << endl;
-		//            for (unsigned int j = 0; j < rank_old; j++)
-		//                cout << "z" << j + tight_size << "_j=" << glp_get_col_prim(lp, j + tight_size + tight2_size + 1) << endl;
-		//        }
 		subr_upd(Arref, J, i, n, prec, U, U2, sumt, sumt2, t, t2, Atight, Atight2, tight_size, tight2_size, rank, unsettled, Asettled, disp, s, T_coord, T2_coord, epsi_old, epsi, unsettled_p, settled, lp, ar0pos);
 		if (rank == n) {
 			u = false;
@@ -1670,42 +1615,6 @@ void subroutine(vector<bool>&U, vector<bool>&U2, vector<vector<bool>> &Atight, v
 			glp_load_matrix(lp, count, ia_arr, ja_arr, ar_arr);
 			if (disp)
 				cout << endl << "  --==  solving subroutine LP again  ==--  " << endl << endl;
-			//            if (disp){
-			//                cout << "variables: " << endl;
-			//                for (unsigned int j = 1; j < tight_size + tight2_size + rank_old + 1; j++)
-			//                    cout << "COL type " << glp_get_col_type(lp, j) << "; lb " << glp_get_col_lb(lp, j) << "; ub " << glp_get_col_ub(lp, j) << endl;
-			//                cout << glp_get_obj_dir(lp) << endl;
-			//                cout << "obj coeff: ";
-			//                for (unsigned int j = 1; j < tight_size + tight2_size + rank_old + 1; j++)
-			//                    cout << glp_get_obj_coef(lp, j) << " ";
-			//                cout << endl;
-			//                for (unsigned short int i = 1; i < n + 2; i++){
-			//                    cout << "ROW type " << glp_get_row_type(lp, i) << "; lb " << glp_get_row_lb(lp, i) << "; ub " << glp_get_row_ub(lp, i) << ": ";
-			////                    glp_get_mat_row(lp, i, row_ind, row_coeff);
-			////                    for (unsigned int j = 1; j < tight_size + tight2_size + rank + 1; j++)
-			////                    cout << row_coeff[j] << " ";
-			//                    cout << endl;
-			//                }
-			//                for (unsigned short int i = 1; i < n + 1; i++){
-			//                    for (unsigned int j = 1; j < tight_size + 1; j++)
-			//                        cout << ar[(j-1)*n+i] << " ";
-			//                    for (unsigned int j = 1; j < tight2_size + 1; j++)
-			//                        cout << ar[(j-1)*n+i+n*tight_size] << " ";
-			//                    for (unsigned int j = 1; j < rank_old + 1; j++)
-			//                        cout << ar[(j-1)*n+i+n*tight_size+n*tight2_size] << " ";
-			//                    cout << endl;
-			//                }
-			//                for (unsigned int j = 1; j < tight_size + 1; j++)
-			//                    cout << ar[j + n*(tight_size + tight2_size + rank_old)] << " ";
-			//                for (unsigned int j = 1; j < tight2_size + 1; j++)
-			//                    cout << ar[j + tight_size + n*(tight_size + tight2_size + rank_old)] << " ";
-			//                for (unsigned int j = 1; j < rank_old + 1; j++)
-			//                    cout << ar[j + tight_size + tight2_size + n*(tight_size + tight2_size + rank_old)] << " ";
-			//                cout << endl;
-			////                for (unsigned int j = 0; j < (n+1)*(tight_size+tight2_size+rank) + 1; j++)
-			////                cout << "ia[" << j << "]=" << ia[j] << " ; ja[" << j << "]=" << ja[j] << " ; ar[" << j << "]=" << ar[j] << endl;
-			//                //cin.get();
-			//            }
 			glp_simplex(lp, &parm);
 			feas = false;
 			if (glp_get_prim_stat(lp) == 2)
@@ -1742,7 +1651,6 @@ void subr_upd(vector<vector<double>>&Arref, vector<bool>&J, unsigned int &i, uns
 			U[i] = false;
 			t[i] = true;
 			ar0pos[i] = true;
-			//ar[count - tight_size - tight2_size - rank + i + 1] = 0;
 			glp_set_obj_coef(lp, i + 1, 0);
 			sumt++;
 			unsettled[T_coord[i]] = false;
@@ -1857,8 +1765,6 @@ void step(vector<bool> &T, vector<bool> &T2, vector<bool> &unsettled, vector<boo
 void imprdir(vector<double>&d, unsigned short int &n, unsigned int &t_size, unsigned short int &t2_size, vector<vector<bool>> &Atight, vector<vector<bool>> &Atight2, vector<bool> &U, vector<bool> &U2, unsigned short int &rank, vector<vector<bool>>&Asettled, bool &disp) {
 	glp_prob *dir_lp;
 	dir_lp = glp_create_prob();
-	//glp_set_prob_name(dir_lp, "dir");
-	//glp_set_obj_name(dir_lp, "dir_obj");
 	glp_set_obj_dir(dir_lp, GLP_MIN);
 	glp_add_cols(dir_lp, n);
 	glp_add_rows(dir_lp, t_size + t2_size + rank);
@@ -1887,7 +1793,6 @@ void imprdir(vector<double>&d, unsigned short int &n, unsigned int &t_size, unsi
 	}
 	for (unsigned short int i = 1; i < n + 1; i++)
 		glp_set_obj_coef(dir_lp, i, sumd[i - 1]);
-	//int* ia = new int(n*(t_size + t2_size + rank) + 1);
 	vector<int> ia(n*(t_size + t2_size + rank) + 1, 0);
 	vector<int> ja(n*(t_size + t2_size + rank) + 1, 0);
 	vector<double> ar(n*(t_size + t2_size + rank) + 1, 0);
@@ -1934,9 +1839,6 @@ void imprdir(vector<double>&d, unsigned short int &n, unsigned int &t_size, unsi
 	if (!disp)
 		parm.msg_lev = GLP_MSG_OFF;
 	glp_simplex(dir_lp, &parm);
-	//bool feas = false;
-	//if (glp_get_prim_stat(dir_lp) == 2)
-	//    feas = true;
 	for (unsigned short int j = 1; j < n + 1; j++)
 		d[j - 1] = glp_get_col_prim(dir_lp, j);
 	glp_delete_prob(dir_lp);
@@ -1964,7 +1866,6 @@ void nucl_comp_mem(bool &disp, unsigned short int &n, unsigned int &s, vector<do
 	while (rank < n)
 		pivot_mem(epsi, s, excess, prec, n, a, Arref, J, unsettled, rank, d, x, disp, Asettled, piv, sr, iter, unsettled_p, singleton_bounds, epsi_old, nlsu, min_satisfaction);
 	t = cpuTime() - t1;
-	//cout << "BNF finished!" << endl;
 	if (disp) {
 		cout << "The nucleolus solution:" << endl;
 		for (unsigned short int i = 0; i < n; i++)
