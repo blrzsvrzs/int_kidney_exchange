@@ -79,10 +79,10 @@ void initial_pairs(unsigned short int& Vp, unsigned short int& N, ListGraph::Nod
 void arrival_times(vector<unsigned short int>& node_arrives, unsigned short int& Vp, unsigned short int& N, ListGraph::NodeMap<bool>& active_nodes, vector<ListGraph::Node>& c, unsigned short int& periods, bool& disp);
 void lex_min_matching(unsigned short int& N, unsigned short int& grandcoal, unsigned int& S, vector<double>& init_alloc, vector<unsigned short int>& s, vector<unsigned short int>& no_of_active_nodes, unsigned short int& I1, unsigned short int& I11, unsigned short int& I2, ListGraph& g, ListGraph::EdgeMap<unsigned short int>& edge_card_weight, vector<ListGraph::Node>& c, double& prec, bool& dispy, vector<double>& y, vector<bool>& pos, vector<unsigned short int>& w, unsigned short int& p, vector<unsigned short int>& lb, vector<unsigned short int>& ub, double& opt, ListGraph::NodeMap<bool>& active_nodes, vector<bool>& leaving, vector<double>& credit, bool& disp, unsigned short int& Vp, bool& d1);
 void changing_nodes(ListGraph::NodeMap<bool>& active_nodes, vector<bool>& leaving, vector<unsigned short int>& no_of_active_nodes, unsigned short int& N, unsigned short int& Vp, vector<unsigned short int>& node_arrives, unsigned short int& Q, bool& disp, vector<ListGraph::Node>& c, vector<unsigned short int>& s);
-void arbitrary_matching(vector<unsigned short int>& node_arrives, ListGraph& g, vector<bool>& leaving, ListGraph::NodeMap<bool>& active_nodes, vector<ListGraph::Node>& c, bool& disp, vector<unsigned short int>& no_of_active_nodes, unsigned short int& N, unsigned short int& Vp, unsigned short int& periods, bool& dispy, vector<unsigned short int>& s, bool& initial_nucl, vector<double>& init_alloc, vector<unsigned short int>& v, unsigned int& S, double& prec, double& t0, vector<vector<unsigned short int>>& solution_NC, vector<vector<unsigned short int>>& actual_alloc, vector<vector<double>>& initial_alloc);
-void lex_min_without_credits(vector<unsigned short int>& node_arrives, ListGraph& g, vector<bool>& leaving, ListGraph::NodeMap<bool>& active_nodes, vector<ListGraph::Node>& c, bool& disp, vector<unsigned short int>& no_of_active_nodes, unsigned short int& N, unsigned short int& Vp, unsigned short int& periods, bool& dispy, vector<unsigned short int>& s, unsigned short int& Q, vector<unsigned short int>& v, unsigned int& S, bool& initial_nucl, vector<double>& init_alloc, vector<double>& credit, double& prec, vector<double>& y, vector<bool>& pos, vector<unsigned short int>& w, unsigned short int& p, double& opt, vector<unsigned short int>& lb, vector<unsigned short int>& ub, ListGraph::EdgeMap<unsigned short int>& edge_card_weight, double& t0, bool& d1, unsigned short int& I, vector<vector<double>>& init_allocations, vector<vector<unsigned short int>>& actual_alloc);
+void arbitrary_matching(vector<unsigned short int>& node_arrives, ListGraph& g, vector<bool>& leaving, ListGraph::NodeMap<bool>& active_nodes, vector<ListGraph::Node>& c, bool& disp, vector<unsigned short int>& no_of_active_nodes, unsigned short int& N, unsigned short int& Vp, unsigned short int& periods, bool& dispy, vector<unsigned short int>& s, bool& initial_nucl, vector<double>& init_alloc, vector<unsigned short int>& v, unsigned int& S, double& prec, double& t0, vector<vector<unsigned short int>>& solution_NC, vector<vector<unsigned short int>>& solution, vector<vector<double>>& initial_alloc);
+void lex_min_without_credits(vector<unsigned short int>& node_arrives, ListGraph& g, vector<bool>& leaving, ListGraph::NodeMap<bool>& active_nodes, vector<ListGraph::Node>& c, bool& disp, vector<unsigned short int>& no_of_active_nodes, unsigned short int& N, unsigned short int& Vp, unsigned short int& periods, bool& dispy, vector<unsigned short int>& s, unsigned short int& Q, vector<unsigned short int>& v, unsigned int& S, bool& initial_nucl, vector<double>& init_alloc, vector<double>& credit, double& prec, vector<double>& y, vector<bool>& pos, vector<unsigned short int>& w, unsigned short int& p, double& opt, vector<unsigned short int>& lb, vector<unsigned short int>& ub, ListGraph::EdgeMap<unsigned short int>& edge_card_weight, double& t0, bool& d1, unsigned short int& I, vector<vector<double>>& init_allocations, vector<vector<unsigned short int>>& solution);
 void ideal_matching(unsigned int& S, ListGraph& g, unsigned short int& N, unsigned short int& Vp, vector<ListGraph::Node>& c, bool& initial_nucl, bool& disp, bool& dispy, double& prec, vector<double>& y, vector<bool>& pos, vector<unsigned short int>& w, unsigned short int& p, vector<unsigned short int>& lb, vector<unsigned short int>& ub, double& opt, unsigned short int& no_of_nodes, vector<unsigned short int>& s_ideal, double& t0, bool& d1, vector<unsigned short int>& v_ideal, vector<double>& init_alloc_ideal, vector<unsigned short int>& s_ideal_d1, double& ideal_time, double& ideal_d1_time);
-void LMC(unsigned short int& Q, unsigned short int& periods, bool& dispy, unsigned short int& N, vector<unsigned short int>& no_of_active_nodes, ListGraph& g, vector<unsigned short int>& v, vector<unsigned short int>& s, vector<ListGraph::Node>& c, bool& disp, unsigned int& S, vector<bool>& leaving, ListGraph::NodeMap<bool>& active_nodes, unsigned short int& Vp, double& t1, double& game_time, bool& initial_nucl, double& t0, vector<double>& init_alloc, double& prec, double& init_alloc_time, vector<vector<double>>& init_allocations, unsigned short int& I1, unsigned short int& I11, unsigned short int& I2, ListGraph::EdgeMap<unsigned short int>& edge_card_weight, vector<double>& y, vector<bool>& pos, vector<unsigned short int>& w, unsigned short int& p, vector<unsigned short int>& lb, vector<unsigned short int>& ub, double& opt, bool& d1, vector<double>& credit, double& matching_time, vector<vector<unsigned short int>>& actual_alloc, vector<unsigned short int>& node_arrives);
+void LMC(unsigned short int& Q, unsigned short int& periods, bool& dispy, unsigned short int& N, vector<unsigned short int>& no_of_active_nodes, ListGraph& g, vector<unsigned short int>& v, vector<unsigned short int>& s, vector<ListGraph::Node>& c, bool& disp, unsigned int& S, vector<bool>& leaving, ListGraph::NodeMap<bool>& active_nodes, unsigned short int& Vp, double& t1, double& game_time, bool& initial_nucl, double& t0, vector<double>& init_alloc, double& prec, double& init_alloc_time, vector<vector<double>>& init_allocations, unsigned short int& I1, unsigned short int& I11, unsigned short int& I2, ListGraph::EdgeMap<unsigned short int>& edge_card_weight, vector<double>& y, vector<bool>& pos, vector<unsigned short int>& w, unsigned short int& p, vector<unsigned short int>& lb, vector<unsigned short int>& ub, double& opt, bool& d1, vector<double>& credit, double& matching_time, vector<vector<unsigned short int>>& solution, vector<unsigned short int>& node_arrives);
 
 int main() {
 	cout << "I solemnly swear that I am up to no good." << endl;
@@ -92,7 +92,7 @@ int main() {
 	unsigned short int inst = 0; // instance number, integer between 0 and 99
 	bool initial_nucl = false; // true: first to evaluate is the nucleolus
 	bool second = true; // false: only the first of Shapley/nucleolus will be evaluated
-	bool dispy = true; // true: information in terminal while running
+	bool dispy = false; // true: information in terminal while running
 	bool disp = false; // true: extremely detailed information while running, avoid with large graphs
 	
 	bool d1 = false;
@@ -502,7 +502,7 @@ int main() {
 	return 0;
 }
 
-void lex_min_without_credits(vector<unsigned short int>& node_arrives, ListGraph& g, vector<bool>& leaving, ListGraph::NodeMap<bool>& active_nodes, vector<ListGraph::Node>& c, bool& disp, vector<unsigned short int>& no_of_active_nodes, unsigned short int& N, unsigned short int& Vp, unsigned short int& periods, bool& dispy, vector<unsigned short int>& s, unsigned short int& Q, vector<unsigned short int>& v, unsigned int& S, bool& initial_nucl, vector<double>& init_alloc, vector<double>& credit, double& prec, vector<double>& deviation, vector<bool>& pos, vector<unsigned short int>& w, unsigned short int& p, double& opt, vector<unsigned short int>& lb, vector<unsigned short int>& ub, ListGraph::EdgeMap<unsigned short int>& edge_card_weight, double& t0, bool& d1, unsigned short int &I, vector<vector<double>>& init_allocations, vector<vector<unsigned short int>> &actual_alloc) {
+void lex_min_without_credits(vector<unsigned short int>& node_arrives, ListGraph& g, vector<bool>& leaving, ListGraph::NodeMap<bool>& active_nodes, vector<ListGraph::Node>& c, bool& disp, vector<unsigned short int>& no_of_active_nodes, unsigned short int& N, unsigned short int& Vp, unsigned short int& periods, bool& dispy, vector<unsigned short int>& s, unsigned short int& Q, vector<unsigned short int>& v, unsigned int& S, bool& initial_nucl, vector<double>& init_alloc, vector<double>& credit, double& prec, vector<double>& deviation, vector<bool>& pos, vector<unsigned short int>& w, unsigned short int& p, double& opt, vector<unsigned short int>& lb, vector<unsigned short int>& ub, ListGraph::EdgeMap<unsigned short int>& edge_card_weight, double& t0, bool& d1, unsigned short int &I, vector<vector<double>>& init_allocations, vector<vector<unsigned short int>> &solution) {
 	Q = 0;
 	if (dispy)
 		cout << " --== Without lex min matching == -- " << endl;
@@ -549,7 +549,7 @@ void lex_min_without_credits(vector<unsigned short int>& node_arrives, ListGraph
 			cout << endl;
 		}
 		lex_min_matching(N, v[S], S, init_alloc, s, no_of_active_nodes, I, I, I, g, edge_card_weight, c, prec, dispy, deviation, pos, w, p, lb, ub, opt, active_nodes, leaving, credit, disp, Vp, d1);
-		actual_alloc[Q] = s;
+		solution[Q] = s;
 		Q++;
 		changing_nodes(active_nodes, leaving, no_of_active_nodes, N, Vp, node_arrives, Q, disp, c, s);
 		if (dispy) {
@@ -560,7 +560,7 @@ void lex_min_without_credits(vector<unsigned short int>& node_arrives, ListGraph
 	return;
 }
 
-void arbitrary_matching(vector<unsigned short int>& node_arrives, ListGraph& g, vector<bool>& leaving, ListGraph::NodeMap<bool>& active_nodes, vector<ListGraph::Node>& c, bool& disp, vector<unsigned short int>& no_of_active_nodes, unsigned short int& N, unsigned short int& Vp, unsigned short int& periods, bool& dispy, vector<unsigned short int>& s, bool& initial_nucl, vector<double>& init_alloc, vector<unsigned short int>& v, unsigned int& S, double& prec, double& t0, vector<vector<unsigned short int>> &solution_NC, vector<vector<unsigned short int>>& actual_alloc, vector<vector<double>>& initial_allocations) {
+void arbitrary_matching(vector<unsigned short int>& node_arrives, ListGraph& g, vector<bool>& leaving, ListGraph::NodeMap<bool>& active_nodes, vector<ListGraph::Node>& c, bool& disp, vector<unsigned short int>& no_of_active_nodes, unsigned short int& N, unsigned short int& Vp, unsigned short int& periods, bool& dispy, vector<unsigned short int>& s, bool& initial_nucl, vector<double>& init_alloc, vector<unsigned short int>& v, unsigned int& S, double& prec, double& t0, vector<vector<unsigned short int>> &solution_NC, vector<vector<unsigned short int>>& solution, vector<vector<double>>& initial_allocations) {
 	if (dispy)
 		cout << " --== Arbitrary matching == -- " << endl;
 	for (unsigned short int i = 0; i < N; i++) {
@@ -604,7 +604,7 @@ void arbitrary_matching(vector<unsigned short int>& node_arrives, ListGraph& g, 
 			}
 			cout << endl;
 		}
-		actual_alloc[Q] = s;
+		solution[Q] = s;
 		if (dispy) {
 			cout << "s[" << Q << "]=";
 			for (unsigned int i = 0; i < N; i++)
@@ -615,7 +615,7 @@ void arbitrary_matching(vector<unsigned short int>& node_arrives, ListGraph& g, 
 	return;
 }
 
-void LMC(unsigned short int& Q, unsigned short int &periods, bool &dispy, unsigned short int &N, vector<unsigned short int> &no_of_active_nodes, ListGraph& g, vector<unsigned short int>& v, vector<unsigned short int>& s, vector<ListGraph::Node>& c, bool &disp, unsigned int &S, vector<bool>& leaving, ListGraph::NodeMap<bool>& active_nodes, unsigned short int& Vp, double& t1, double& game_time, bool &initial_nucl, double &t0, vector<double>&init_alloc, double &prec, double &init_alloc_time, vector<vector<double>>& init_allocations, unsigned short int &I1, unsigned short int& I11, unsigned short int& I2, ListGraph::EdgeMap<unsigned short int> &edge_card_weight, vector<double> & deviation, vector<bool> &pos, vector<unsigned short int> &w, unsigned short int &p, vector<unsigned short int> &lb, vector<unsigned short int> &ub, double &opt, bool &d1, vector<double> &credit, double &matching_time, vector<vector<unsigned short int>> &actual_alloc, vector<unsigned short int>& node_arrives) {
+void LMC(unsigned short int& Q, unsigned short int &periods, bool &dispy, unsigned short int &N, vector<unsigned short int> &no_of_active_nodes, ListGraph& g, vector<unsigned short int>& v, vector<unsigned short int>& s, vector<ListGraph::Node>& c, bool &disp, unsigned int &S, vector<bool>& leaving, ListGraph::NodeMap<bool>& active_nodes, unsigned short int& Vp, double& t1, double& game_time, bool &initial_nucl, double &t0, vector<double>&init_alloc, double &prec, double &init_alloc_time, vector<vector<double>>& init_allocations, unsigned short int &I1, unsigned short int& I11, unsigned short int& I2, ListGraph::EdgeMap<unsigned short int> &edge_card_weight, vector<double> & deviation, vector<bool> &pos, vector<unsigned short int> &w, unsigned short int &p, vector<unsigned short int> &lb, vector<unsigned short int> &ub, double &opt, bool &d1, vector<double> &credit, double &matching_time, vector<vector<unsigned short int>> &solution, vector<unsigned short int>& node_arrives) {
 	while (Q < periods) {
 		if (dispy) {
 			cout << endl << "--== PERIOD " << Q + 1 << " ==--" << endl << endl;
@@ -653,7 +653,7 @@ void LMC(unsigned short int& Q, unsigned short int &periods, bool &dispy, unsign
 		lex_min_matching(N, v[S], S, init_alloc, s, no_of_active_nodes, I1, I11, I2, g, edge_card_weight, c, prec, dispy, deviation, pos, w, p, lb, ub, opt, active_nodes, leaving, credit, disp, Vp, d1);
 		t1 = cpuTime();
 		matching_time += t1 - t0;
-		actual_alloc[Q] = s;
+		solution[Q] = s;
 		t0 = cpuTime();
 		for (unsigned short int i = 0; i < N; i++)
 			credit[i] += init_alloc[i] - s[i];
